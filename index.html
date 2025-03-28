@@ -8,8 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-</head>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> </head>
 <body>
     <header class="header container">
         <div class="logo">
@@ -19,8 +18,7 @@
             <a href="#" class="nav-link">Home</a>
             <a href="https://adobe.ly/3P9IOGN" class="nav-link" target="_blank">Portfolio</a>
             <a href="#package-builder-section" class="nav-link">Services</a>
-            <a href="https://youtube.com/playlist?list=PLaBGc1dfIKtSF7ybUANh37c_6wV055FfQ&si=wA7t7-7lSbVEyNzI" class="nav-link" target="_blank">Wedding Videos</a>
-            <a href="#contact" class="nav-link">Contact</a>
+            <a href="https://youtube.com/playlist?list=PLaBGc1dfIKtSF7ybUANh37c_6wV055FfQ&si=wA7t7-7lSbVEyNzI" class="nav-link" target="_blank">Wedding Videos</a> <a href="#contact" class="nav-link">Contact</a>
         </nav>
     </header>
 
@@ -52,40 +50,40 @@
                     <h2>What type of event are you planning?</h2>
                     <p>Select the type of event to customize your perfect package.</p>
                     <div class="selection-grid" id="event-type-grid">
-                    </div>
+                        </div>
                 </div>
 
                 <div id="step-2" class="service-type-selection" style="display: none;">
                     <h2>Choose your service type</h2>
-                    <p>Select the type of service you need for your <span id="selected-event-name"></span>.</p>
+                    <p>Select the type of service you need for your <span id="selected-event-name">event</span>.</p>
                     <div class="selection-grid" id="service-type-grid">
-                    </div>
+                        </div>
                     <div class="navigation-buttons">
                         <button onclick="goToPreviousStep()" class="back-button">Back</button>
                     </div>
                 </div>
 
                 <div id="step-3" class="base-package-selection" style="display: none;">
-                    <h2>Choose your <span id="event-service-title"></span> Package</h2>
+                    <h2>Choose your <span id="event-service-title">Package Type</span> Package</h2>
                     <p>Select the package that best fits your needs and budget.</p>
                     <div class="view-toggle">
-                        <button id="card-view-btn" class="toggle-button active" onclick="setViewMode('card')">
+                        <button id="card-view-btn" class="toggle-button active">
                             Card View
                         </button>
-                        <button id="comparison-view-btn" class="toggle-button" onclick="setViewMode('comparison')">
+                        <button id="comparison-view-btn" class="toggle-button">
                             Comparison View
                         </button>
                     </div>
 
                     <div id="package-cards-view" class="package-cards">
-                    </div>
+                        </div>
 
                     <div id="package-comparison-view" class="package-comparison" style="display: none;">
-                    </div>
+                        </div>
 
                     <div class="navigation-buttons">
                         <button onclick="goToPreviousStep()" class="back-button">Back</button>
-                    </div>
+                        </div>
                 </div>
 
                 <div id="step-4" class="add-ons-selection" style="display: none;">
@@ -97,21 +95,21 @@
                             <h3>Available Add-Ons</h3>
 
                             <div class="category-tabs" id="category-tabs">
-                            </div>
+                                </div>
 
                             <div id="add-ons-grid" class="add-ons-grid">
-                            </div>
+                                </div>
                         </div>
 
                         <div class="selected-add-ons">
                             <h3>Your Selections</h3>
                             <div id="selected-package" class="selected-package">
                                 <div class="package-name">
-                                    <h4 id="selected-package-name"></h4>
-                                    <p id="selected-package-price"></p>
+                                    <h4 id="selected-package-name">Package Name</h4>
+                                    <p id="selected-package-price">$0</p>
                                 </div>
                                 <div class="package-features" id="selected-package-features">
-                                </div>
+                                    </div>
                             </div>
 
                             <div id="selected-add-ons-list" class="selected-add-ons-list">
@@ -169,7 +167,7 @@
                                 <span id="summary-package-price"></span>
                             </div>
                             <div class="summary-features" id="summary-package-features">
-                            </div>
+                                </div>
                         </div>
 
                         <div class="summary-section">
@@ -243,15 +241,13 @@
                         <a href="#">Home</a>
                         <a href="https://adobe.ly/3P9IOGN" target="_blank">Portfolio</a>
                         <a href="#package-builder-section">Services</a>
-                        <a href="https://youtube.com/playlist?list=PLaBGc1dfIKtSF7ybUANh37c_6wV055FfQ&si=wA7t7-7lSbVEyNzI" target="_blank">Wedding Videos</a>
-                        <a href="#contact">Contact</a>
+                        <a href="https://youtube.com/playlist?list=PLaBGc1dfIKtSF7ybUANh37c_6wV055FfQ&si=wA7t7-7lSbVEyNzI" target="_blank">Wedding Videos</a> <a href="#contact">Contact</a>
                     </div>
                     <div class="footer-section">
                         <h3>Connect</h3>
                         <a href="https://www.facebook.com/getmonieproductions" target="_blank">Facebook</a>
                         <a href="https://www.instagram.com/getmonieproductions" target="_blank">Instagram</a>
-                        <a href="https://youtube.com/@getmonieproductions" target="_blank">YouTube</a>
-                    </div>
+                        <a href="https://youtube.com/@getmonieproductions" target="_blank">YouTube</a> </div>
                     <div class="footer-section" id="contact">
                         <h3>Contact</h3>
                         <p>Phone: 337-247-7224</p>
@@ -260,8 +256,7 @@
                 </div>
             </div>
             <div class="copyright">
-                © 2025 GET MONIE Productions. All rights reserved.
-            </div>
+                © 2025 GET MONIE Productions. All rights reserved. </div>
         </div>
     </footer>
 
