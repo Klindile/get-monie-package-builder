@@ -19,7 +19,7 @@
             <a href="#" class="nav-link">Home</a>
             <a href="https://adobe.ly/3P9IOGN" class="nav-link" target="_blank">Portfolio</a>
             <a href="#package-builder-section" class="nav-link">Services</a>
-            <a href="https://youtube.com/playlist?list=PLaBGc1dfIKtSF7y..." class="nav-link" target="_blank">Wedding Videos</a>
+            <a href="https://youtube.com/playlist?list=PLaBGc1dfIKtSF7ybUANh37c_6wV055FfQ&si=wA7t7-7lSbVEyNzI" class="nav-link" target="_blank">Wedding Videos</a>
             <a href="#contact" class="nav-link">Contact</a>
         </nav>
     </header>
@@ -231,106 +231,40 @@
         </div>
     </section>
 
-    <footer id="contact" class="footer">
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
                     GET <span>MONIE</span>
                 </div>
                 <div class="footer-links">
-                    <div class="footer-column">
+                    <div class="footer-section">
                         <h3>Navigation</h3>
                         <a href="#">Home</a>
                         <a href="https://adobe.ly/3P9IOGN" target="_blank">Portfolio</a>
                         <a href="#package-builder-section">Services</a>
-                        <a href="https://youtube.com/playlist?list=PLaBGc1dfIKtSF7y..." target="_blank">Wedding Videos</a>
+                        <a href="https://youtube.com/playlist?list=PLaBGc1dfIKtSF7ybUANh37c_6wV055FfQ&si=wA7t7-7lSbVEyNzI" target="_blank">Wedding Videos</a>
                         <a href="#contact">Contact</a>
                     </div>
-                    <div class="footer-column">
-                        <h3>Services</h3>
-                        <a href="#package-builder-section">Wedding Photography</a>
-                        <a href="#package-builder-section">Event Videography</a>
-                        <a href="#package-builder-section">Portrait Sessions</a>
-                        <a href="#package-builder-section">Commercial Production</a>
+                    <div class="footer-section">
+                        <h3>Connect</h3>
+                        <a href="https://www.facebook.com/getmonieproductions" target="_blank">Facebook</a>
+                        <a href="https://www.instagram.com/getmonieproductions" target="_blank">Instagram</a>
+                        <a href="https://youtube.com/@getmonieproductions" target="_blank">YouTube</a>
                     </div>
-                    <div class="footer-column">
+                    <div class="footer-section" id="contact">
                         <h3>Contact</h3>
+                        <p>Phone: 337-247-7224</p>
                         <p>Email: getmonieproductions@gmail.com</p>
-                        <p>Phone: (337) 247-7224</p>
-                        <div class="social-icons">
-                            <a href="https://www.facebook.com/Get-Monie-Productions" class="social-icon" target="_blank">FB</a>
-                            <a href="https://www.instagram.com" class="social-icon" target="_blank">IG</a>
-                            <a href="https://youtube.com/playlist?list=PLaBGc1dfIKtSF7y..." class="social-icon" target="_blank">YT</a>
-                        </div>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                &copy; 2025 GET MONIE Photography & Videography. All rights reserved.
+                &copy; 2025 GET MONIE Productions. All rights reserved.
             </div>
         </div>
     </footer>
 
     <script src="package-builder.js"></script>
-    <script>
-        // Function to send completed package to email
-        function sendPackageToEmail() {
-            // Get all the package details
-            const eventType = document.getElementById('summary-event-type').textContent;
-            const serviceType = document.getElementById('summary-service-type').textContent;
-            const packageName = document.getElementById('summary-package-name').textContent;
-            const packagePrice = document.getElementById('summary-package-price').textContent;
-            const addOnsPrice = document.getElementById('summary-addons-price').textContent;
-            const totalPrice = document.getElementById('summary-total-price').textContent;
-            
-            // Get customer details
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const eventDate = document.getElementById('event-date').value;
-            const message = document.getElementById('message').value;
-            
-            // Create email content
-            const emailSubject = `New Package Booking: ${eventType} ${serviceType} by ${name}`;
-            const emailBody = `
-                New Package Booking Details:
-                
-                Customer Information:
-                Name: ${name}
-                Email: ${email}
-                Phone: ${phone}
-                Event Date: ${eventDate}
-                
-                Package Details:
-                Event Type: ${eventType}
-                Service Type: ${serviceType}
-                Selected Package: ${packageName} (${packagePrice})
-                Add-Ons Total: ${addOnsPrice}
-                Total Price: ${totalPrice}
-                
-                Additional Information:
-                ${message}
-            `;
-            
-            // In a real implementation, this would send an email to getmonieproductions@gmail.com
-            // For now, we'll just log it to console and show an alert
-            console.log('Sending email to getmonieproductions@gmail.com');
-            console.log('Subject:', emailSubject);
-            console.log('Body:', emailBody);
-            
-            alert('Thank you for your booking! Your package details have been sent to our team, and we will contact you shortly to confirm your booking.');
-        }
-        
-        // Update the form submission handler
-        document.addEventListener('DOMContentLoaded', function() {
-            const bookingForm = document.getElementById('booking-form');
-            if (bookingForm) {
-                bookingForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    sendPackageToEmail();
-                });
-            }
-        });
-    </script>
 </body>
 </html>

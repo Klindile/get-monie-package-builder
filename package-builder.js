@@ -6,25 +6,25 @@ const packageData = {
       id: "wedding",
       name: "Wedding",
       description: "Capture every moment of your special day",
-      imageUrl: "https://lightroom.adobe.com/shares/8cd4e1f5e3f1495c83b0458764165dba/albums/99ecf4af329b450ab1619150d0022051/assets/38b0f7c21cbf40f780a30bee3588519e"
+      imageUrl: "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     },
     {
       id: "small-event",
       name: "Small Event",
       description: "Perfect for birthdays, parties, and gatherings",
-      imageUrl: "https://lightroom.adobe.com/shares/8cd4e1f5e3f1495c83b0458764165dba/albums/99ecf4af329b450ab1619150d0022051/assets/7be25ce077b14b5db433b5b5f383d6d6"
+      imageUrl: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     },
     {
       id: "production",
       name: "Production",
       description: "Commercial, product, and promotional content",
-      imageUrl: "https://lightroom.adobe.com/shares/8cd4e1f5e3f1495c83b0458764165dba/albums/99ecf4af329b450ab1619150d0022051/assets/8c8ebe987b0741dd82cff0497d33d183"
+      imageUrl: "https://images.unsplash.com/photo-1574717024453-354056afd6fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     },
     {
       id: "portrait",
       name: "Portrait Session",
       description: "Individual or family portrait photography",
-      imageUrl: "https://lightroom.adobe.com/shares/8cd4e1f5e3f1495c83b0458764165dba/albums/99ecf4af329b450ab1619150d0022051/assets/8c8ebe987b0741dd82cff0497d33d183"
+      imageUrl: "https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     }
   ],
   serviceTypes: [
@@ -32,19 +32,19 @@ const packageData = {
       id: "photography",
       name: "Photography",
       description: "Professional photography services",
-      imageUrl: "https://lightroom.adobe.com/shares/8cd4e1f5e3f1495c83b0458764165dba/albums/99ecf4af329b450ab1619150d0022051/assets/38b0f7c21cbf40f780a30bee3588519e"
+      imageUrl: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     },
     {
       id: "videography",
       name: "Videography",
       description: "Professional videography services",
-      imageUrl: "https://lightroom.adobe.com/shares/8cd4e1f5e3f1495c83b0458764165dba/albums/99ecf4af329b450ab1619150d0022051/assets/7be25ce077b14b5db433b5b5f383d6d6"
+      imageUrl: "https://images.unsplash.com/photo-1569317002804-ab77bcf1bce4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     },
     {
       id: "both",
       name: "Photography & Videography",
       description: "Comprehensive photo and video coverage",
-      imageUrl: "https://lightroom.adobe.com/shares/8cd4e1f5e3f1495c83b0458764165dba/albums/99ecf4af329b450ab1619150d0022051/assets/38b0f7c21cbf40f780a30bee3588519e"
+      imageUrl: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     }
   ],
   packages: {
@@ -1618,18 +1618,31 @@ function setupFormSubmission() {
       message: formData.get("message")
     };
     
-    // Here you would typically send this data to your server
-    console.log("Booking submitted:", {
-      customer: customerData,
-      package: {
-        eventType: currentState.eventType,
-        serviceType: currentState.serviceType,
-        basePackage: currentState.basePackage,
-        addOns: currentState.selectedAddOns,
-        totalPrice: currentState.basePackage.price + 
-                   currentState.selectedAddOns.reduce((total, addon) => total + addon.price, 0)
-      }
-    });
+    // Create email content
+    const emailSubject = `New Package Booking Request from ${customerData.name}`;
+    const emailBody = `
+      Name: ${customerData.name}
+      Email: ${customerData.email}
+      Phone: ${customerData.phone}
+      Event Date: ${customerData.eventDate}
+      
+      Package Details:
+      Event Type: ${currentState.eventType.name}
+      Service Type: ${currentState.serviceType.name}
+      Base Package: ${currentState.basePackage.name} ($${currentState.basePackage.price})
+      
+      Selected Add-ons:
+      ${currentState.selectedAddOns.map(addon => `- ${addon.name} ($${addon.price})`).join('\n')}
+      
+      Total Price: $${currentState.basePackage.price + currentState.selectedAddOns.reduce((total, addon) => total + addon.price, 0)}
+      
+      Additional Message:
+      ${customerData.message}
+    `;
+    
+    // Send email (this would typically be handled by a server-side script)
+    const mailtoLink = `mailto:getmonieproductions@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    window.open(mailtoLink);
     
     // Show success message
     alert("Thank you for your booking request! We will contact you shortly to confirm your details.");
