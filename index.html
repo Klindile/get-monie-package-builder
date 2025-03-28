@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET MONIE Photography & Videography Package Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header container">
+        <div class="logo">
+            GET <span>MONIE</span>
+        </div>
+        <nav class="nav">
+            <a href="#" class="nav-link">Home</a>
+            <a href="https://adobe.ly/3P9IOGN" class="nav-link" target="_blank">Portfolio</a>
+            <a href="#package-builder-section" class="nav-link">Services</a>
+            <a href="https://youtube.com/playlist?list=PLaBGc1dfIKtSF7y..." class="nav-link" target="_blank">Wedding Videos</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Capture Your Perfect Moments</h1>
+            <p>Professional photography and videography services tailored to your needs</p>
+            <button class="cta-button" onclick="scrollToBuilder()">Build Your Package</button>
+        </div>
+    </section>
+
+    <section id="package-builder-section" class="section container">
+        <div class="section-title">
+            <h2>Build Your Custom Package</h2>
+            <p>Create a personalized photography and videography package that perfectly fits your event and budget.</p>
+        </div>
+
+        <div id="package-builder" class="package-builder">
+            <div class="progress-bar">
+                <div class="step active" data-text="Event Type">1</div>
+                <div class="step" data-text="Service Type">2</div>
+                <div class="step" data-text="Base Package">3</div>
+                <div class="step" data-text="Add-Ons">4</div>
+                <div class="step" data-text="Summary">5</div>
+            </div>
+
+            <div class="builder-content">
+                <div id="step-1" class="event-type-selection">
+                    <h2>What type of event are you planning?</h2>
+                    <p>Select the type of event to customize your perfect package.</p>
+                    <div class="selection-grid" id="event-type-grid">
+                    </div>
+                </div>
+
+                <div id="step-2" class="service-type-selection" style="display: none;">
+                    <h2>Choose your service type</h2>
+                    <p>Select the type of service you need for your <span id="selected-event-name"></span>.</p>
+                    <div class="selection-grid" id="service-type-grid">
+                    </div>
+                    <div class="navigation-buttons">
+                        <button onclick="goToPreviousStep()" class="back-button">Back</button>
+                    </div>
+                </div>
+
+                <div id="step-3" class="base-package-selection" style="display: none;">
+                    <h2>Choose your <span id="event-service-title"></span> Package</h2>
+                    <p>Select the package that best fits your needs and budget.</p>
+                    <div class="view-toggle">
+                        <button id="card-view-btn" class="toggle-button active" onclick="setViewMode('card')">
+                            Card View
+                        </button>
+                        <button id="comparison-view-btn" class="toggle-button" onclick="setViewMode('comparison')">
+                            Comparison View
+                        </button>
+                    </div>
+
+                    <div id="package-cards-view" class="package-cards">
+                    </div>
+
+                    <div id="package-comparison-view" class="package-comparison" style="display: none;">
+                    </div>
+
+                    <div class="navigation-buttons">
+                        <button onclick="goToPreviousStep()" class="back-button">Back</button>
+                    </div>
+                </div>
+
+                <div id="step-4" class="add-ons-selection" style="display: none;">
+                    <h2>Customize your package with add-ons</h2>
+                    <p>Enhance your experience with these optional add-ons.</p>
+
+                    <div class="add-ons-container">
+                        <div class="add-ons-list">
+                            <h3>Available Add-Ons</h3>
+
+                            <div class="category-tabs" id="category-tabs">
+                            </div>
+
+                            <div id="add-ons-grid" class="add-ons-grid">
+                            </div>
+                        </div>
+
+                        <div class="selected-add-ons">
+                            <h3>Your Selections</h3>
+                            <div id="selected-package" class="selected-package">
+                                <div class="package-name">
+                                    <h4 id="selected-package-name"></h4>
+                                    <p id="selected-package-price"></p>
+                                </div>
+                                <div class="package-features" id="selected-package-features">
+                                </div>
+                            </div>
+
+                            <div id="selected-add-ons-list" class="selected-add-ons-list">
+                                <p class="empty-message">No add-ons selected yet</p>
+                            </div>
+
+                            <div class="total-price">
+                                <div class="price-row">
+                                    <span>Base Package:</span>
+                                    <span id="base-package-price">$0</span>
+                                </div>
+                                <div class="price-row">
+                                    <span>Add-Ons:</span>
+                                    <span id="add-ons-price">$0</span>
+                                </div>
+                                <div class="price-row total">
+                                    <span>Total:</span>
+                                    <span id="total-price">$0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="navigation-buttons">
+                        <button onclick="goToPreviousStep()" class="back-button">Back</button>
+                        <button onclick="goToNextStep()" class="next-button">Continue to Summary</button>
+                    </div>
+                </div>
+
+                <div id="step-5" class="summary" style="display: none;">
+                    <h2>Your Custom Package Summary</h2>
+                    <p>Review your selections before finalizing your package.</p>
+
+                    <div class="summary-container">
+                        <div class="summary-section">
+                            <h3>Event Details</h3>
+                            <div class="summary-row">
+                                <span>Event Type:</span>
+                                <span id="summary-event-type"></span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Service Type:</span>
+                                <span id="summary-service-type"></span>
+                            </div>
+                        </div>
+
+                        <div class="summary-section">
+                            <h3>Selected Package</h3>
+                            <div class="summary-row">
+                                <span>Package:</span>
+                                <span id="summary-package-name"></span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Price:</span>
+                                <span id="summary-package-price"></span>
+                            </div>
+                            <div class="summary-features" id="summary-package-features">
+                            </div>
+                        </div>
+
+                        <div class="summary-section">
+                            <h3>Selected Add-Ons</h3>
+                            <div id="summary-add-ons">
+                                <p class="empty-message">No add-ons selected</p>
+                            </div>
+                        </div>
+
+                        <div class="summary-section total-section">
+                            <div class="summary-row">
+                                <span>Base Package:</span>
+                                <span id="summary-base-price"></span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Add-Ons:</span>
+                                <span id="summary-addons-price"></span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total Price:</span>
+                                <span id="summary-total-price"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3>Ready to Book?</h3>
+                        <p>Fill out the form below and we'll contact you to finalize your booking.</p>
+                        <form id="booking-form">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="event-date">Event Date</label>
+                                <input type="date" id="event-date" name="event-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Additional Information</label>
+                                <textarea id="message" name="message" rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="submit-button">Submit Booking Request</button>
+                        </form>
+                    </div>
+
+                    <div class="navigation-buttons">
+                        <button onclick="goToPreviousStep()" class="back-button">Back to Add-Ons</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    GET <span>MONIE</span>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Navigation</h3>
+                        <a href="#">Home</a>
+                        <a href="https://adobe.ly/3P9IOGN" target="_blank">Portfolio</a>
+                        <a href="#package-builder-section">Services</a>
+                        <a href="https://youtube.com/playlist?list=PLaBGc1dfIKtSF7y..." target="_blank">Wedding Videos</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Services</h3>
+                        <a href="#package-builder-section">Wedding Photography</a>
+                        <a href="#package-builder-section">Event Videography</a>
+                        <a href="#package-builder-section">Portrait Sessions</a>
+                        <a href="#package-builder-section">Commercial Production</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Contact</h3>
+                        <p>Email: getmonieproductions@gmail.com</p>
+                        <p>Phone: (337) 247-7224</p>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/Get-Monie-Productions" class="social-icon" target="_blank">FB</a>
+                            <a href="https://www.instagram.com" class="social-icon" target="_blank">IG</a>
+                            <a href="https://youtube.com/playlist?list=PLaBGc1dfIKtSF7y..." class="social-icon" target="_blank">YT</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 GET MONIE Photography & Videography. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="package-builder.js"></script>
+    <script>
+        // Function to send completed package to email
+        function sendPackageToEmail() {
+            // Get all the package details
+            const eventType = document.getElementById('summary-event-type').textContent;
+            const serviceType = document.getElementById('summary-service-type').textContent;
+            const packageName = document.getElementById('summary-package-name').textContent;
+            const packagePrice = document.getElementById('summary-package-price').textContent;
+            const addOnsPrice = document.getElementById('summary-addons-price').textContent;
+            const totalPrice = document.getElementById('summary-total-price').textContent;
+            
+            // Get customer details
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const eventDate = document.getElementById('event-date').value;
+            const message = document.getElementById('message').value;
+            
+            // Create email content
+            const emailSubject = `New Package Booking: ${eventType} ${serviceType} by ${name}`;
+            const emailBody = `
+                New Package Booking Details:
+                
+                Customer Information:
+                Name: ${name}
+                Email: ${email}
+                Phone: ${phone}
+                Event Date: ${eventDate}
+                
+                Package Details:
+                Event Type: ${eventType}
+                Service Type: ${serviceType}
+                Selected Package: ${packageName} (${packagePrice})
+                Add-Ons Total: ${addOnsPrice}
+                Total Price: ${totalPrice}
+                
+                Additional Information:
+                ${message}
+            `;
+            
+            // In a real implementation, this would send an email to getmonieproductions@gmail.com
+            // For now, we'll just log it to console and show an alert
+            console.log('Sending email to getmonieproductions@gmail.com');
+            console.log('Subject:', emailSubject);
+            console.log('Body:', emailBody);
+            
+            alert('Thank you for your booking! Your package details have been sent to our team, and we will contact you shortly to confirm your booking.');
+        }
+        
+        // Update the form submission handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const bookingForm = document.getElementById('booking-form');
+            if (bookingForm) {
+                bookingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    sendPackageToEmail();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
