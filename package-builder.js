@@ -8,25 +8,25 @@ const packageData = {
       id: "wedding",
       name: "Wedding",
       description: "Capture every moment of your special day",
-      imageUrl: "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+      imageUrl: "https://adobe.ly/3XWucju"
     },
     {
       id: "small-event",
       name: "Small Event",
       description: "Perfect for birthdays, parties, and gatherings",
-      imageUrl: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+      imageUrl: "https://adobe.ly/4cuthwL"
     },
     {
       id: "production",
       name: "Production",
       description: "Commercial, product, and promotional content",
-      imageUrl: "https://lightroom.adobe.com/shares/8cd4e1f5e3f1495c83b0458764165dba" // <-- Make sure this path is correct
+      imageUrl: "https://adobe.ly/4cuQsqt"
     },
     {
       id: "portrait",
       name: "Portrait Session",
       description: "Individual or family portrait photography",
-      imageUrl: "https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+      imageUrl: "https://adobe.ly/42ubP6K"
     }
   ],
   serviceTypes: [
@@ -34,19 +34,19 @@ const packageData = {
       id: "photography",
       name: "Photography",
       description: "Professional photography services",
-      imageUrl: "https://lightroom.adobe.com/shares/8cd4e1f5e3f1495c83b0458764165dba"
+      imageUrl: "https://adobe.ly/42DLbK1"
     },
     {
       id: "videography",
       name: "Videography",
       description: "Professional videography services",
-      imageUrl: "https://www.youtube.com/watch?v=59fEE_f-yTg&list=PLaBGc1dfIKtSF7ybUANh37c_6wV055FfQ"
+      imageUrl: "https://adobe.ly/4j4l18V"
     },
     {
       id: "both",
       name: "Photography & Videography",
       description: "Comprehensive photo and video coverage",
-      imageUrl: "https://lightroom.adobe.com/shares/8cd4e1f5e3f1495c83b0458764165dba"
+      imageUrl: "https://adobe.ly/3Ee1hRj"
     }
   ],
   packages: {
