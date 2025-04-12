@@ -1,4 +1,5 @@
-// --- START FILE: package-builder.js (FULL CODE WITH MODIFICATIONS) ---
+// This file handles the functionality of the package builder
+
 
 // Package data with all event types, service types, base packages, and add-ons
 const packageData = {
@@ -19,7 +20,7 @@ const packageData = {
       id: "production",
       name: "Production",
       description: "Commercial, product, and promotional content",
-      imageUrl: "images/prod.jpg" // <-- Make sure this path is correct
+      imageUrl: "https://lightroom.adobe.com/shares/8cd4e1f5e3f1495c83b0458764165dba" // <-- Make sure this path is correct
     },
     {
       id: "portrait",
@@ -33,19 +34,19 @@ const packageData = {
       id: "photography",
       name: "Photography",
       description: "Professional photography services",
-      imageUrl: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+      imageUrl: "https://lightroom.adobe.com/shares/8cd4e1f5e3f1495c83b0458764165dba"
     },
     {
       id: "videography",
       name: "Videography",
       description: "Professional videography services",
-      imageUrl: "https://images.unsplash.com/photo-1569317002804-ab77bcf1bce4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+      imageUrl: "https://www.youtube.com/watch?v=59fEE_f-yTg&list=PLaBGc1dfIKtSF7ybUANh37c_6wV055FfQ"
     },
     {
       id: "both",
       name: "Photography & Videography",
       description: "Comprehensive photo and video coverage",
-      imageUrl: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+      imageUrl: "https://lightroom.adobe.com/shares/8cd4e1f5e3f1495c83b0458764165dba"
     }
   ],
   packages: {
@@ -53,15 +54,15 @@ const packageData = {
     "wedding-photography": [ // No direct price match in image, keeping existing for now
       {
         id: "basic", name: "Essential", price: 1200, description: "Perfect for intimate weddings with essential coverage",
-        features: ["6 hours of coverage", "1 photographer", "Online gallery", "100+ edited digital images", "Print release"]
+        features: ["6 hours of coverage", "1 photographer", "Online gallery", "100+ edited digital images", "Print release", "1 Outfit Change", "Minimum of 5 Detailed Photos"]
       },
       {
-        id: "standard", name: "Classic", price: 2000, description: "Our most popular package with comprehensive coverage",
-        features: ["8 hours of coverage", "2 photographers", "Engagement session", "Online gallery", "300+ edited digital images", "Print release", "Wedding album (8x8, 20 pages)"]
+        id: "standard", name: "Classic", price: 339, description: "Ideal for individuals, couples, or small families",
+        features: ["Up to 2 hour session", "2 Locations", "2 Outfit Changes", "Online gallery", "Min. 10 Detailed Photos", "All candids with access to cloud folder", "Print release"]
       },
       {
-        id: "premium", name: "Luxury", price: 3500, description: "Complete coverage with premium products and services",
-        features: ["10 hours of coverage", "2 photographers", "Engagement session", "Bridal session", "Online gallery", "500+ edited digital images", "Print release", "Premium wedding album (10x10, 30 pages)", "2 parent albums", "16x20 canvas print"]
+        id: "premium", name: "Luxury", price: 399, description: "Comprehensive portrait session for families or groups",
+        features: ["Up to 3 hour session", "3 Locations", "3 Outfit Changes", "Online gallery", "Min. 15 Detailed Photos", "All candids with access to cloud folder", "Highlight reel", "Print release"]
       }
     ],
     "wedding-videography": [ // Prices and hours adjusted towards image A, B, C
@@ -81,19 +82,19 @@ const packageData = {
     "wedding-both": [ // Prices significantly reduced towards image A, B, C, S. Added S tier. Hours/features adjusted.
       {
         id: "basic", name: "Package A", price: 1499, description: "Essential photo and video coverage for your wedding",
-        features: ["4 hours of coverage", "1 photographer", "1 videographer", "Edited digital images", "Highlight film (approx 5 min)", "Online gallery", "Digital delivery", "Print release", "Drone Footage (weather permitting)"] // Adjusted features/hours
+        features: ["4 HR coverage", "Ceremony & Reception", "Consultation", "1 Cameras", "1 Camera Man", "5 min Video"] // Adjusted features/hours
       },
       {
         id: "standard", name: "Package B", price: 1999, description: "Popular combined package",
-        features: ["6 hours of coverage", "1-2 photographers", "1-2 videographers", "Edited digital images", "Highlight Film", "Trailer within 48 hrs", "Online gallery", "Digital delivery", "Print release", "Drone footage (weather permitting)"] // Adjusted features/hours
+        features: ["8 HR coverage", "Ceremony, wedding party venue/dress/gathering & Reception", "Consultation", "2 Cameras", "2 Camera Men", "Drone Footage", "15 min Video"] // Adjusted features/hours
       },
       {
         id: "premium", name: "Package C", price: 3499, description: "Full coverage combined experience",
-        features: ["8 hours of coverage", "2 photographers", "2 videographers", "Edited digital images", "Highlight reel", "Next Day wedding Trailer", "20 min Video", "Online gallery", "Digital delivery", "Print release", "Drone footage (weather permitting)"] // Adjusted features/hours
+        features: ["Full Coverage (8hrs)", "Ceremony, wedding party venue/dress/gathering & Reception", "Consultation", "2-3 Cameras", "2 Camera Man", "Drone Footage", "Social Media Highlight reel", "Next Day wedding Trailer", "20 min Video"] // Adjusted features/hours
       },
       {
         id: "luxury", name: "Package S", price: 5000, description: "The ultimate wedding photo and video experience",
-        features: ["Full Coverage (8hrs+)", "2+ photographers", "2+ videographers", "Edited digital images", "Next Day wedding Trailer", "Social Media Highlight reel", "360 video of full ceremony", "1hr wedding Documentary", "Online gallery", "Digital delivery", "Print release", "Drone footage (weather permitting)", "Gifts! (includes headset 360 video)"] // Added S tier based on image
+        features: ["Full Coverage (8hrs)", "Ceremony, wedding party venue/dress/gathering & Reception", "Consultation", "3 Cameras", "3 Camera Men", "Drone Footage", "Next Day wedding Trailer", "Social Media Highlight reel", "360 video of full ceremony", "1hr wedding Documentary"] // Added S tier based on image
       }
     ],
     // --- SMALL EVENT --- (Keeping existing for now, image prices seem geared to Portrait/Wedding)
@@ -107,22 +108,22 @@ const packageData = {
         features: ["4 hours of coverage", "1 photographer", "Online gallery", "100+ edited digital images", "Print release"]
       },
       {
-        id: "premium", name: "Luxury", price: 1200, description: "Premium coverage for important celebrations",
-        features: ["6 hours of coverage", "1 photographer", "Online gallery", "200+ edited digital images", "Print release", "16x20 mounted print"]
+        id: "premium", name: "Package C", price: 399, description: "3 hr Package",
+        features: ["3 hrs coverage", "3 Outfit changes", "15 detailed photos", "all candids with access to cloud folder", "highlight reel"]
       }
     ],
     "small-event-videography": [
        {
-        id: "basic", name: "Essential", price: 500, description: "Capture the key moments of your event",
-        features: ["2 hours of coverage", "1 videographer", "2-3 minute highlight film", "Digital delivery", "1 revision"]
+        id: "basic", name: "Package A", price: 200, description: "Capture the key moments of your event",
+        features: ["1 HR coverage", "1 location", "consultation", "1 Camera Man", "1-2 Min Highlight Video"]
       },
       {
-        id: "standard", name: "Classic", price: 900, description: "Comprehensive video coverage of your event",
-        features: ["4 hours of coverage", "1 videographer", "3-5 minute highlight film", "15-minute feature film", "Digital delivery", "2 revisions"]
+        id: "standard", name: "Package B", price: 400, description: "Comprehensive video coverage of your event",
+        features: ["3 Hr coverage", "2 Locations", "Consultation", "1 Camera Man", "Drone Footage", "5 min Highlight Video"]
       },
       {
-        id: "premium", name: "Luxury", price: 1500, description: "Premium video coverage for special celebrations",
-        features: ["6 hours of coverage", "2 videographers", "5-7 minute highlight film", "30-minute feature film", "Digital delivery", "3 revisions", "Drone footage (weather permitting)"]
+        id: "premium", name: "Package C", price: 800, description: "Premium video coverage for special celebrations",
+        features: ["6-(up to 8) HR coverage", "multiple locations", "consultation", "2 Cameras", "Drone Footage", "10-15 min Video"]
       }
     ],
     "small-event-both": [
@@ -130,8 +131,8 @@ const packageData = {
         id: "basic", name: "Essential", price: 800, description: "Essential photo and video coverage for your event",
         features: ["2 hours of coverage", "1 photographer", "1 videographer", "50+ edited digital images", "2-3 minute highlight film", "Online gallery", "Digital delivery", "Print release", "1 revision (video)"]
       },
-      {
-        id: "standard", name: "Classic", price: 1500, description: "Comprehensive photo and video coverage",
+       {
+        id: "standard", name: "Package B", price: 1999, description: "Popular combined package",
         features: ["4 hours of coverage", "1 photographer", "1 videographer", "100+ edited digital images", "3-5 minute highlight film", "15-minute feature film", "Online gallery", "Digital delivery", "Print release", "2 revisions (video)"]
       },
       {
@@ -139,6 +140,26 @@ const packageData = {
         features: ["6 hours of coverage", "1 photographer", "2 videographers", "200+ edited digital images", "5-7 minute highlight film", "30-minute feature film", "Online gallery", "Digital delivery", "Print release", "16x20 mounted print", "3 revisions (video)", "Drone footage (weather permitting)"]
       }
     ],
+        "small-event-both": [ // Prices significantly reduced towards image A, B, C, S. Added S tier. Hours/features adjusted.
+      {
+        id: "basic", name: "Package A", price: 999, description: "Essential photo and video coverage for your wedding",
+        features: ["4 HR coverage", "Ceremony & Reception", "Consultation", "1 Cameras", "1 Camera Man", "5 min Video"] // Adjusted features/hours
+      },
+      {
+        id: "standard", name: "Package B", price: 1999, description: "Popular combined package",
+        features: ["8 HR coverage", "Ceremony, wedding party venue/dress/gathering & Reception", "Consultation", "2 Cameras", "2 Camera Men", "Drone Footage", "15 min Video"] // Adjusted features/hours
+      },
+      {
+        id: "premium", name: "Package C", price: 3499, description: "Full coverage combined experience",
+        features: ["Full Coverage (8hrs)", "Ceremony, wedding party venue/dress/gathering & Reception", "Consultation", "2-3 Cameras", "2 Camera Man", "Drone Footage", "Social Media Highlight reel", "Next Day wedding Trailer", "20 min Video"] // Adjusted features/hours
+      },
+      {
+        id: "luxury", name: "Package S", price: 5000, description: "The ultimate wedding photo and video experience",
+        features: ["Full Coverage (8hrs)", "Ceremony, wedding party venue/dress/gathering & Reception", "Consultation", "3 Cameras", "3 Camera Men", "Drone Footage", "Next Day wedding Trailer", "Social Media Highlight reel", "360 video of full ceremony", "1hr wedding Documentary"] // Added S tier based on image
+      }
+    ],
+
+
     // --- PRODUCTION --- (Keeping existing for now)
     "production-photography": [
        {
@@ -182,17 +203,17 @@ const packageData = {
         features: ["Full day of studio/filming (10 hours)", "1 photographer", "2 videographers", "1 assistant", "40 final edited images", "90-120 second main video", "3 additional 15-30 second cuts for social media", "Digital delivery", "Commercial usage rights", "Advanced retouching (photos)", "Unlimited revisions (video)", "Custom motion graphics", "Licensed music", "Professional voiceover", "Drone footage (if applicable)", "Location scouting", "Props and styling consultation"]
       }
     ],
-    // --- PORTRAIT ---
+      // --- PORTRAIT ---
     "portrait-photography": [ // Prices and hours adjusted to match image A, B, C
       {
-        id: "basic", name: "Package A (1hr)", price: 249, description: "Perfect for individuals or couples",
-        features: ["Up to 1 hour session", "1 Location", "1 Outfit Change", "Online gallery", "Min. 5 Detailed Photos", "Min. 20 candids with access to cloud folder", "Print release"] // Adjusted features
+        id: "basic", name: "Package A", price: 249, description: "Perfect for individuals or couples",
+        features: ["1 Hour session", "1 Location", "1 Outfit Change", "Online gallery", "Min. 5 Detailed Photos", "Min. 20 candids with access to cloud folder", "Print release"] // Adjusted features
       },
       {
         id: "standard", name: "Package B (2hr)", price: 339, description: "Ideal for individuals, couples, or small families",
         features: ["Up to 2 hour session", "2 Locations", "2 Outfit Changes", "Online gallery", "Min. 10 Detailed Photos", "All candids with access to cloud folder", "Print release"] // Adjusted features/hours
       },
-      {
+      {   
         id: "premium", name: "Package C (3hr)", price: 399, description: "Comprehensive portrait session for families or groups",
         features: ["Up to 3 hour session", "3 Locations", "3 Outfit Changes", "Online gallery", "Min. 15 Detailed Photos", "All candids with access to cloud folder", "Highlight reel", "Print release"] // Adjusted features/hours
       }
